@@ -1,4 +1,4 @@
-# **Pizza Haven**
+# **The Pizza Haven**
 
 ## **Project Overview**
 **Pizza Haven** is an interactive pizza delivery web application built with **React** and **Redux Toolkit**. Users can browse the menu, manage their shopping cart, place orders, and manage profiles. The app integrates **REST APIs** to fetch the menu, manage orders, and handle user data, providing a dynamic and real-time experience.
