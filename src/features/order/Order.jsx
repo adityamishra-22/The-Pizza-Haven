@@ -43,7 +43,7 @@ function Order() {
 
         <div className="space-x-2">
           {priority && (
-            <span className="rounded-full bg-orange-500 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-red-50">
+            <span className="rounded-full bg-red-500 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-red-50">
               Priority
             </span>
           )}
@@ -64,15 +64,17 @@ function Order() {
         </p>
       </div>
 
-      <ul className="dive-stone-200 divide-y border-b border-t">
+      <ul className="divide-y divide-stone-200 border-b border-t">
         {cart.map((item) => (
           <OrderItem
             item={item}
             key={item.pizzaId}
             isLoadingIngredients={fetcher.state === 'loading'}
             ingredients={
-              fetcher?.data?.find((el) => el.id === item.pizzaId)
-                ?.ingredients ?? []
+              Array.isArray(fetcher?.data)
+                ? fetcher.data.find((el) => el.id === item.pizzaId)
+                    ?.ingredients ?? []
+                : []
             }
           />
         ))}
